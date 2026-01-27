@@ -49,7 +49,7 @@ https://docs.spring.io/spring-boot/how-to/data-initialization.html#howto.data-in
 > Pour que Spring Boot garde le contrôle sur l'autoconfiguration, il est important de ne pas utiliser l'annotation @EnableBatchProcessing.
 
 > [!note]
-> Autre scénario : si l'on souhaite insérer les scripts de création des tables BATCH_* dans le fichier schema-all.sql alors il faut positionner la propriété spring.batch.jdbc.initialize-schema à never.
+> Autre scénario : si l'on souhaite insérer les instructions SQL de création des tables BATCH_* dans le fichier schema-all.sql alors il faut positionner la propriété spring.batch.jdbc.initialize-schema à never.
 On peut récupérer les instructions de création des tables depuis l'archive spring-batch-core-6.0.0-sources.jar: \org\springframework\batch\core\schema-postgresql.sql 
 
 ## Que fait ce batch ?
