@@ -22,6 +22,20 @@ Il crée la table applicative `recette`.
 ### ⚙️ Tables metadata de Spring Batch
 - On peut créer automatiquement les tables de métadonnées `BATCH_*` nécessaires au suivi des jobs (JobInstance, JobExecution, StepExecution, etc.)
 
+Ce sont les tables suivantes :
+
+BATCH_JOB_INSTANCE
+
+BATCH_JOB_EXECUTION
+
+BATCH_JOB_EXECUTION_PARAM
+
+BATCH_STEP_EXECUTION
+
+BATCH_STEP_EXECUTION_CONTEXT
+
+BATCH_JOB_EXECUTION_CONTEXT
+
 ![alt text](./src/main/resources/images/TablesBatch.png)
 
 - Quelles sont les dépendances requises pour générer les tables METADATA (BATCH_*) ?
