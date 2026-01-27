@@ -8,6 +8,8 @@
 ### ⚙️ Spring Batch
 - Crée automatiquement les tables de métadonnées `BATCH_*` nécessaires au suivi des jobs (JobInstance, JobExecution, StepExecution, etc.)
 
+![alt text](./src/main/resources/images/TablesBatch.png)
+
 ## Remarques
 
 - Le script `schema-all.sql` est exécuté au démarrage de l'application grâce à la propriété :
