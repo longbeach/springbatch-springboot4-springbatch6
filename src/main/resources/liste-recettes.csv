@@ -1,0 +1,11 @@
+nom,type_cuisine,difficulte,temps_preparation,ingredients,instructions
+Pancakes,Americaine,Facile,15,"farine, oeufs, lait, sucre","Melanger les ingredients puis cuire a la poele"
+Spaghetti Bolognaise,Italienne,Moyen,40,"spaghetti, boeuf hache, tomate, oignon, ail","Faire revenir la viande puis ajouter la sauce"
+Ratatouille,Francaise,Moyen,50,"courgette, aubergine, tomate, poivron, oignon","Couper les legumes et mijoter a feu doux"
+Omelette Fromage,Francaise,Facile,10,"oeufs, fromage, beurre, sel","Battre les oeufs puis cuire avec le fromage"
+Sushi Maki,Japonaise,Difficile,60,"riz, algue nori, saumon, vinaigre de riz","Rouler le riz et le poisson dans l algue"
+Tacos Poulet,Mexicaine,Facile,25,"tortilla, poulet, salade, tomate, sauce","Garnir les tortillas puis replier"
+Curry Legumes,Indienne,Moyen,35,"pomme de terre, carotte, lait de coco, curry","Cuire les legumes et ajouter les epices"
+Quiche Lorraine,Francaise,Moyen,45,"pate brisee, oeufs, creme, lardons","Melanger la garniture et cuire au four"
+Burger Maison,Americaine,Facile,20,"pain burger, boeuf, fromage, salade, tomate","Assembler et cuire la viande"
+Salade Cesar,Americaine,Facile,15,"salade romaine, poulet, parmesan, croutons","Melanger les ingredients et ajouter la sauce"
