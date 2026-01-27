@@ -2,6 +2,14 @@
 
 [[_TOC_]]
 
+## Pile technologique
+
+Spring Boot 4.0.0
+
+Spring Batch 6.0.0
+
+JDK 17
+
 ## Initialisation de la base de données
 
 ### 📄 schema-all.sql
