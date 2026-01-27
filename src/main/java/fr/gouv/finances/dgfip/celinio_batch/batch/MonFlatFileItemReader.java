@@ -10,22 +10,25 @@ import org.springframework.core.io.Resource;
 
 import fr.gouv.finances.dgfip.celinio_batch.persistance.Recette;
 
+/**
+ * Le reader est responsable de récupérer les données d'entrée. Ici, il
+ * interroge le fichier liste-recettes.csv pour récupérer les recettes.
+ */
 @Configuration
 public class MonFlatFileItemReader {
 
-    @Value("${file.input}")
-    private Resource fileInput; // Injecter le fichier CSV
-    
+	@Value("${file.input}")
+	private Resource fileInput; // Injecter le fichier CSV
+
 	@Bean
 	public FlatFileItemReader<Recette> reader() {
-	    return new FlatFileItemReaderBuilder<Recette>().name("recetteReader")
-	      .resource(fileInput)
-	      .delimited()
-	      .names("nom", "typeCuisine", "difficulte", "tempsPreparation", "ingredients", "instructions")
-	      .fieldSetMapper(new BeanWrapperFieldSetMapper<>() {{
-	          setTargetType(Recette.class);
-	      }})
-	      .linesToSkip(1) // <-- Pour ignorer l'entête du fichier liste-recettes.csv
-	      .build();
-	} 
+		return new FlatFileItemReaderBuilder<Recette>().name("recetteReader").resource(fileInput).delimited()
+				.names("nom", "typeCuisine", "difficulte", "tempsPreparation", "ingredients", "instructions")
+				.fieldSetMapper(new BeanWrapperFieldSetMapper<>() {
+					{
+						setTargetType(Recette.class);
+					}
+				}).linesToSkip(1) // <-- Pour ignorer l'entête du fichier liste-recettes.csv
+				.build();
+	}
 }

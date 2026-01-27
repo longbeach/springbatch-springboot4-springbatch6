@@ -29,11 +29,29 @@ public class BatchConfiguration {
 	@Value("${file.input}")
 	private Resource inputFile;
 
+	/**
+	 * Le writer est responsable de l'enregistrement des données traitées. 
+	 * Ici, il utilise EntityManagerFactory pour sauvegarder toutes les recettes dans la base de données.
+	 * @param emf
+	 * @return
+	 */
 	@Bean
 	public JpaItemWriter<Recette> recetteWriter(EntityManagerFactory emf) {
 		return new org.springframework.batch.infrastructure.item.database.JpaItemWriter<>(emf);
 	}
 
+	/**
+	 * Cette étape du job (step) se compose d'un lecteur (reader) et d'un écrivain (writer).
+	 * Le type de traitement se fait par blocs (chunks). 
+	 * Cela signifie que Spring Batch lira 10 enregistrements à la fois (grâce à chunk(10)), 
+	 * les traitera via le processeur (il n'y en a pas ici), et les écrira ensuite. 
+	 * StepBuilder permet de construire cette étape avec une gestion transactionnelle grâce à PlatformTransactionManager.
+	 * @param jobRepository
+	 * @param transactionManager
+	 * @param recetteReader
+	 * @param recetteWriter
+	 * @return
+	 */
 	@Bean
 	public Step importRecetteStep(JobRepository jobRepository, PlatformTransactionManager transactionManager,
 			ItemReader<Recette> recetteReader, ItemWriter<Recette> recetteWriter) {
@@ -41,13 +59,21 @@ public class BatchConfiguration {
 				.writer(recetteWriter).transactionManager(transactionManager).build();
 	}
 
+	/**
+	 * Un job est composé d'une ou plusieurs étapes (steps).
+	 * @param jobRepository
+	 * @param importRecetteStep
+	 * @return
+	 */
 	@Bean
 	public Job importRecetteJob(JobRepository jobRepository, Step importRecetteStep) {
 		// Utilisation de incrementer(new RunIdIncrementer()) pour éviter l'erreur
 		// suivante :
-		// org.springframework.batch.core.launch.JobInstanceAlreadyCompleteException:
+		// "org.springframework.batch.core.launch.JobInstanceAlreadyCompleteException:
 		// A job instance already exists and is complete for identifying parameters={}.
-		// If you want to run this job again, change the parameters.
+		// If you want to run this job again, change the parameters."
+		// RunIdIncrementer permet d'ajouter un identifiant unique à chaque exécution du job, 
+		// ce qui est utile pour exécuter plusieurs fois le même job sans conflit.
 		return new JobBuilder("importRecettesJob", jobRepository).incrementer(new RunIdIncrementer())
 				.start(importRecetteStep).build();
 	}
