@@ -69,7 +69,17 @@ Le mode resourceless implique :
 - Pas de monitoring via tables Batch
 
 
-Comment activer le mode resourceless
+Comment activer le mode resourceless ?
 
 Avec Spring Batch 6, il suffit de ne pas configurer de datasource Batch.
+
+Quelles sont les dépendances requises pour générer les tables METADATA (BATCH_*) ?
+
+<dependency>
+
+<groupId>org.springframework.boot</groupId>
+
+<artifactId>spring-boot-starter-batch-jdbc</artifactId>
+
+</dependency>
 
