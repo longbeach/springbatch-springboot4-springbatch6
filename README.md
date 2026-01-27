@@ -1,5 +1,7 @@
 # Spring Batch Application
 
+[[_TOC_]]
+
 ## Initialisation de la base de données
 
 ### 📄 schema-all.sql
