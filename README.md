@@ -75,11 +75,9 @@ Avec Spring Batch 6, il suffit de ne pas configurer de datasource Batch.
 
 Quelles sont les dépendances requises pour générer les tables METADATA (BATCH_*) ?
 
+```xml
 <dependency>
-
 <groupId>org.springframework.boot</groupId>
-
 <artifactId>spring-boot-starter-batch-jdbc</artifactId>
-
 </dependency>
-
+```
