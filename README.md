@@ -44,7 +44,7 @@ Il lit les recettes du fichier liste-recettes.csv pour les insérer en base de d
 
 ## Remarques
 
-> [!note] 
+> [!Remarque 1] 
 > Le script `schema-all.sql` est exécuté au démarrage de l'application grâce à la propriété spring.sql.init.mode : ** spring.sql.init.mode=always **
 
 
