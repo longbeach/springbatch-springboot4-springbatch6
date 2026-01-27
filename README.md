@@ -10,6 +10,12 @@
 
 ![alt text](./src/main/resources/images/TablesBatch.png)
 
+## Que fait ce batch ?
+
+Il lit les recettes du fichier liste-recettes.csv pour les insérer en base de données, dans la table RECETTE.
+
+![alt text](./src/main/resources/images/TableRecette.png)
+
 ## Remarques
 
 - Le script `schema-all.sql` est exécuté au démarrage de l'application grâce à la propriété :
