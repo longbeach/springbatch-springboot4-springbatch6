@@ -31,6 +31,11 @@ Ce sont les tables suivantes :
 
 ![alt text](./src/main/resources/images/TablesBatch.png)
 
+Dans application.properties, il faut positionner la propriété spring.batch.jdbc.initialize-schema à always :
+`spring.batch.jdbc.initialize-schema=always`
+
+https://docs.spring.io/spring-boot/how-to/data-initialization.html#howto.data-initialization.batch
+
 - Quelles sont les dépendances requises pour générer les tables METADATA (BATCH_*) ?
 
 ```xml
