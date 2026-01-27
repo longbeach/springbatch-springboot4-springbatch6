@@ -87,6 +87,10 @@ Quelles sont les dépendances requises pour générer les tables METADATA (BATCH
 [!IMPORTANT]
 Pour que Spring Boot garde le contrôle sur l'autoconfiguration, il est important de ne pas utiliser l'annotation @EnableBatchProcessing.
 
+> [!important]
+> This is something important you should know.
+
+
 Autre scénario :
 
 Insérer les scripts de création des tables BATCH_* dans le fichier schema-all.sql. Dans ce cas, positionner la propriété spring.batch.jdbc.initialize-schema à never.
