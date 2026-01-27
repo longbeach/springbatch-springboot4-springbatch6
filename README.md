@@ -52,6 +52,7 @@ Idéal pour :
 - Tests automatisés
 
 Limitations importantes
+
 Le mode resourceless implique :
 
 - Pas de redémarrage possible (restart)
