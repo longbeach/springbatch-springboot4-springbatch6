@@ -100,3 +100,8 @@ Comment activer le mode resourceless ?
 Avec Spring Batch 6, il suffit de ne pas configurer de datasource Batch.
 
 
+## Liens
+
+https://github.com/spring-projects/spring-boot/issues/48233
+
+
