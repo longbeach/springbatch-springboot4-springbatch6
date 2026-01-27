@@ -12,6 +12,22 @@
 
 ![alt text](./src/main/resources/images/TablesBatch.png)
 
+- Quelles sont les dépendances requises pour générer les tables METADATA (BATCH_*) ?
+
+```xml
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-batch-jdbc</artifactId>
+</dependency>
+```
+
+> [!important]
+> Pour que Spring Boot garde le contrôle sur l'autoconfiguration, il est important de ne pas utiliser l'annotation @EnableBatchProcessing.
+
+
+> [!note]
+> Autre scénario : insérer les scripts de création des tables BATCH_* dans le fichier schema-all.sql. Dans ce cas, positionner la propriété spring.batch.jdbc.initialize-schema à never.
+
 ## Que fait ce batch ?
 
 Il lit les recettes du fichier liste-recettes.csv pour les insérer en base de données, dans la table RECETTE.
@@ -75,18 +91,4 @@ Comment activer le mode resourceless ?
 
 Avec Spring Batch 6, il suffit de ne pas configurer de datasource Batch.
 
-Quelles sont les dépendances requises pour générer les tables METADATA (BATCH_*) ?
 
-```xml
-<dependency>
-<groupId>org.springframework.boot</groupId>
-<artifactId>spring-boot-starter-batch-jdbc</artifactId>
-</dependency>
-```
-
-> [!important]
-> Pour que Spring Boot garde le contrôle sur l'autoconfiguration, il est important de ne pas utiliser l'annotation @EnableBatchProcessing.
-
-
-> [!note]
-> Autre scénario : insérer les scripts de création des tables BATCH_* dans le fichier schema-all.sql. Dans ce cas, positionner la propriété spring.batch.jdbc.initialize-schema à never.
