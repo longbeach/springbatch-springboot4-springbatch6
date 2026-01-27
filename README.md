@@ -13,10 +13,11 @@ JDK 17
 ## Initialisation de la base de données
 
 ### 📄 Tables applicatives : schema-all.sql
-- Crée la table applicative `recette`
 Le script `schema-all.sql` est exécuté au démarrage de l'application grâce à la propriété spring.sql.init.mode :
 
 **spring.sql.init.mode=always**
+
+Il crée la table applicative `recette`.
 
 ### ⚙️ Tables metadata de Spring Batch
 - On peut créer automatiquement les tables de métadonnées `BATCH_*` nécessaires au suivi des jobs (JobInstance, JobExecution, StepExecution, etc.)
@@ -36,7 +37,8 @@ Le script `schema-all.sql` est exécuté au démarrage de l'application grâce �
 > Pour que Spring Boot garde le contrôle sur l'autoconfiguration, il est important de ne pas utiliser l'annotation @EnableBatchProcessing.
 
 > [!note]
-> Autre scénario : insérer les scripts de création des tables BATCH_* dans le fichier schema-all.sql. Dans ce cas, positionner la propriété spring.batch.jdbc.initialize-schema à never.
+> Autre scénario : si l'on souhaite insérer les scripts de création des tables BATCH_* dans le fichier schema-all.sql alors il faut positionner la propriété spring.batch.jdbc.initialize-schema à never.
+On peut récupérer les instructions de création des tables depuis l'archive spring-batch-core-6.0.0-sources.jar: \org\springframework\batch\core\schema-postgresql.sql 
 
 ## Que fait ce batch ?
 
